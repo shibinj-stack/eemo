@@ -5,7 +5,7 @@
      2. Mixed/none    → LSTM fallback  show result
    No UI changes — purely internal smart fallback logic.
    ============================================================ */
-const API_URL = 'https://eemo1.onrender.com/api/predict';
+const API_URL = 'https://eemo11.onrender.com/api/predict'; // Use your actual backend URL here
 const EMOTIONS = {
   happy:    { color: '#f9c74f', emoji: '😊', label: 'Happy' },
   calm:     { color: '#4ecdc4', emoji: '😌', label: 'Calm' },
@@ -29,7 +29,7 @@ const state = {
 
 // ── Server health check ───────────────────────────────────────
 window.addEventListener('load', () => {
-  fetch('https://eemo1.onrender.com/health')
+  fetch('https://eemo11.onrender.com/health')
     .then(r => r.json())
     .then(() => {
       document.getElementById('serverStatus').textContent = 'ML Engine Ready';
