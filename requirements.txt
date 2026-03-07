@@ -4,6 +4,4 @@ numpy
 pandas
 scikit-learn
 gunicorn
-matplotlib
-seaborn
-tensorflow-cpu==2.12.0
+tensorflow-cpu==2.15.0
