@@ -2,6 +2,6 @@ flask
 flask-cors
 numpy
 pandas
-scikit-learn
+scikit-learn==1.4.2
 gunicorn
 tensorflow-cpu==2.15.0
