@@ -5,9 +5,7 @@
      2. Mixed/none    → LSTM fallback  show result
    No UI changes — purely internal smart fallback logic.
    ============================================================ */
-
-const API_URL = 'https://eemo-qskc.onrender.com/api/predict';
-
+const API_URL = 'https://eemo1.onrender.com/api/predict';
 const EMOTIONS = {
   happy:    { color: '#f9c74f', emoji: '😊', label: 'Happy' },
   calm:     { color: '#4ecdc4', emoji: '😌', label: 'Calm' },
