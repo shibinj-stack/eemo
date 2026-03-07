@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KeyMood — Emotion Detection</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+
+  <!-- HEADER -->
+  <header>
+    <div class="logo">
+      <div class="logo-name">Key<span>Mood</span></div>
+      <div class="logo-tag">Keystroke Emotion Detection</div>
+    </div>
+    <div class="status-pill">
+      <div class="status-dot" id="statusDot"></div>
+      <span id="serverStatus">Connecting...</span>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <div class="hero">
+    <h1>Your typing reveals<br>your <em>emotional state</em></h1>
+    <p>Type naturally in the box below. The system first reads your words,
+       then analyzes your keystroke rhythm to detect your emotion.</p>
+  </div>
+
+  <!-- MAIN CAPTURE CARD -->
+  <div class="card">
+    <div class="card-header">
+      <span class="card-title">// Typing Input</span>
+      <span class="key-count" id="keyCount">0 keystrokes captured</span>
+    </div>
+
+    <div class="typing-area">
+      <div class="prompt-text">→ Type anything — describe your day, how you feel, or any text</div>
+      <div class="keystroke-viz" id="keystrokeViz"></div>
+      <textarea id="typingInput"
+        placeholder="Start typing here..."
+        spellcheck="false"></textarea>
+    </div>
+
+    <div class="metrics-strip">
+      <div class="metric">
+        <span class="metric-label">Typing Speed</span>
+        <span class="metric-value" id="wpm">—</span>
+        <span class="metric-unit">WPM</span>
+      </div>
+      <div class="metric">
+        <span class="metric-label">Avg. Dwell</span>
+        <span class="metric-value" id="dwellTime">—</span>
+        <span class="metric-unit">ms / key</span>
+      </div>
+      <div class="metric">
+        <span class="metric-label">Pause Events</span>
+        <span class="metric-value" id="pauseCount">0</span>
+        <span class="metric-unit">detected</span>
+      </div>
+      <div class="metric">
+        <span class="metric-label">Rhythm Score</span>
+        <span class="metric-value" id="rhythmScore">—</span>
+        <span class="metric-unit">/ 100</span>
+      </div>
+    </div>
+
+    <div class="cta-row">
+      <button class="btn-analyze" id="analyzeBtn" disabled onclick="analyzeEmotion()">
+        Analyze Emotion →
+      </button>
+      <button class="btn-reset" onclick="resetAll()">Reset</button>
+    </div>
+  </div>
+
+  <!-- RESULT PANEL -->
+  <div class="result-panel" id="resultPanel">
+    <div class="result-card">
+      <div class="result-header">
+        <div class="emotion-badge" id="emotionBadge"></div>
+        <div class="result-info">
+          <div class="result-label">Detected Emotion</div>
+          <div class="result-emotion" id="emotionLabel">—</div>
+          <div class="confidence-bar-wrap">
+            <div class="confidence-bar">
+              <div class="confidence-fill" id="confidenceFill"></div>
+            </div>
+            <span class="confidence-pct" id="confidencePct">0%</span>
+          </div>
+        </div>
+      </div>
+      <div class="emotion-breakdown" id="emotionBreakdown"></div>
+      <div class="insight-block">
+        <div class="insight-icon">💡</div>
+        <div class="insight-text" id="insightText"></div>
+      </div>
+      <div class="feature-panel" id="featurePanel"></div>
+    </div>
+  </div>
+
+  <!-- HOW IT WORKS -->
+  <div style="margin-top:40px;">
+    <div class="section-label">// How it works</div>
+    <div class="features-grid">
+      <div class="feature-item">
+        <div class="feature-icon">🔤</div>
+        <div class="feature-title">Keyword Scan</div>
+        <div class="feature-desc">First checks your typed words against 140+ emotion keywords. If a clear match is found, the result is shown instantly.</div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">🔀</div>
+        <div class="feature-title">Smart Fallback</div>
+        <div class="feature-desc">If keywords are mixed or absent, the system automatically falls back to LSTM keystroke analysis — no action needed.</div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">🧠</div>
+        <div class="feature-title">LSTM Analysis</div>
+        <div class="feature-desc">BiLSTM analyzes 9 keystroke features — speed, rhythm, dwell, pauses — to classify your emotion from typing behavior.</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- LOADING OVERLAY -->
+<div class="loading-overlay" id="loadingOverlay">
+  <div class="loader-ring"></div>
+  <div class="loader-text" id="loadingText">Analyzing...</div>
+</div>
+
+<script src="keywords.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
