@@ -6,7 +6,7 @@
    No UI changes — purely internal smart fallback logic.
    ============================================================ */
 
-const API_URL = 'https://eemo1.onrender.com/api/predict';
+const API_URL = 'https://emo-5yfv.onrender.com/api/predict';
 
 const EMOTIONS = {
   happy:    { color: '#f9c74f', emoji: '😊', label: 'Happy' },
