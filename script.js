@@ -31,7 +31,8 @@ const state = {
 
 // ── Server health check ───────────────────────────────────────
 window.addEventListener('load', () => {
-  fetch('https://eemo1.onrender.com/health')
+  fetch('https://emo-5yfv.onrender.com/health')
+// ... rest of the code
     .then(r => r.json())
     .then(() => {
       document.getElementById('serverStatus').textContent = 'ML Engine Ready';
